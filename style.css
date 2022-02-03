@@ -6,15 +6,14 @@ table {
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
-    width: 960px;
-    height: 960px;
+    width: 600px;
+    height: 600px;
     table-layout: auto;
 
   }
 
 
 th, td {
-    padding: 15px;
     text-align: left;
 
   }
