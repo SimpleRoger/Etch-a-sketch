@@ -10,9 +10,27 @@
 </head>
 <body>
     <div class="button">
-            <input type = "submit" onclick="makeGrid(16); return false;">
-            <button onclick="removeGrid(); return false;">Clear Me</button>
-    </div>
-    <table id="pixelCanvas"></table>
+        <h1> Roger's SketchPad</h1>
+            <input type = "text" placeholder="size of board" value = "16" onchange="makeGrid(this.value)">
+            <button>Generate</button>
+            <button onclick="removeGrid();">Clear Me</button>
+            <button onclick="changeColor('black')"> Black</button>
+            <button onclick="changeColor('white')"> Eraser</button>
+            <button onclick="changeColor('gray')"> Grey</button>
+            <button onclick="changeColor('random')"> Random</button>
+            <div class="mode"></div>
+
+        </div>
+        <div class="error">
+            Input must be between 1 and 100
+        </div>
+        <div class = "click">
+            <h3 style="text-align:center">Toggle Paint Tool with "Click"</h3>
+            <div class="mode">
+
+            </div>
+        </div>
+        
+        <table id="pixelCanvas"></table>
 </body>
 </html>

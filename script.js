@@ -1,5 +1,15 @@
+let color = 'black';
+let click = true;
+var toggle = false;
 function makeGrid (size) {
+    if (size < 0 || size > 50) {
+        return;
+    }
+    document.querySelector(".error").style.display = "none";
     let tbl = document.getElementById('pixelCanvas');
+    let squares = tbl.querySelectorAll("tr");
+    squares.forEach((td) => td.remove());
+
     for(let i=0; i<size; i++) {
         let myRow = document.createElement("tr");
         myRow.id = "row" + i;
@@ -10,15 +20,11 @@ function makeGrid (size) {
             row.appendChild(myCell)
         }
     }
-    let table = document.querySelector("#pixelCanvas");
-    let square = table.querySelectorAll("tr > td");
+    let square = tbl.querySelectorAll("tr > td");
     for (let i = 0; i < square.length; i++) {
-    square.item(i).addEventListener("mouseenter", function(event) {
-        event.target.style.background = "red";
-        console.log('hi')
-    }, false);  }
-
-    console.log(square);
+        square.item(i).addEventListener("mouseover", colorSquare)
+        console.log(square);
+    }
 }
 
 function removeGrid() {
@@ -32,4 +38,32 @@ function removeGrid() {
 
 }
 
+function colorSquare() {
+    if (click) {
+        if (color === "random") {
+            console.log('hi');
+            this.style.backgroundColor = Math.floor(Math.random() * 16777215).toString(16);
+        }
+        else {
+            this.style.backgroundColor = color;
+        }
+    }
+}
 
+function changeColor(choice) {
+    color = choice;
+}
+
+
+document.querySelector("html").addEventListener("click", (e) => {
+    if (e.target.tagName !="BUTTON") {
+        //assinging it to 
+        click = !click;
+        if (click) {
+            document.querySelector('.mode').textContent = "Paint on"
+        } else {
+            document.querySelector('.mode').textContent = "Paint off"
+        }
+    }
+
+});
