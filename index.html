@@ -9,16 +9,17 @@
     <script src ="script.js"></script>
 </head>
 <body>
-    <div class="button">
+    <div class="head">
         <h1> Roger's SketchPad</h1>
-            <input type = "text" placeholder="size of board" value = "16" onchange="makeGrid(this.value)">
+    </div>
+    <div class="button">
+            <input type = "text" placeholder="size of board" value = "0" onchange="makeGrid(this.value)">
             <button>Generate</button>
             <button onclick="removeGrid();">Clear Me</button>
             <button onclick="changeColor('black')"> Black</button>
             <button onclick="changeColor('white')"> Eraser</button>
             <button onclick="changeColor('gray')"> Grey</button>
             <button onclick="changeColor('random')"> Random</button>
-            <div class="mode"></div>
 
         </div>
         <div class="error">
@@ -27,7 +28,7 @@
         <div class = "click">
             <h3 style="text-align:center">Toggle Paint Tool with "Click"</h3>
             <div class="mode">
-
+                <i>Paint off</i>
             </div>
         </div>
         
